@@ -29,7 +29,15 @@
     </li>
   </ul>
 
+  <ul>
+    <p> Emails entered not ending in .com </p>
+    <li ng-repeat="y in myData2">
+      {{y}}
+    </li>
+  </ul>
+
   <p>{{countPeople}} persons entered emails</p>
+  <p>{{countPeopleNoCom}} persons email ends in not ending .com</p>
   <p>{{countPeopleCom}} persons email ends in .com</p>
 
 </div>

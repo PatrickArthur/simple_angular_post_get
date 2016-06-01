@@ -46,27 +46,37 @@ app.controller('peopleCtrl', function($scope, $http) {
   function getPeople() {
     $http.get("/api/people").then(function(response) {
       var people_data = response.data
-      $scope.myData = onlyEmailendcom(people_data);
-      $scope.countPeople = countPeople(people_data);
-      $scope.countPeopleCom = countPeopleCom(people_data);
+      $scope.myData = onlyEmailendcom(people_data,true);
+      $scope.myData2 = onlyEmailendcom(people_data,false);
+      $scope.countPeople = people_data.length
+      $scope.countPeopleNoCom = onlyEmailendcom(people_data,false).length;
+      $scope.countPeopleCom = onlyEmailendcom(people_data,true).length;
     });
   }
 
-  function countPeople(data) {
-    return data.length
-  }
-
-  function countPeopleCom(data) {
-    return onlyEmailendcom(data).length
-  }
-
-  function onlyEmailendcom(data) {
+  function onlyEmailendcom(data,email) {
     array = []
-    for (i=0; i< data.length; i++){
-      if (data[i].email.search(".com") >= 0) {
-        array.push(data[i].email)
+    array2 = []
+    loopData(data,array,array2)
+    return switchArray(array,array2,email)
+  }
+
+  function loopData(input,arr,arr2) {
+    for (i=0; i< input.length; i++){
+      if (input[i].email.search(".com") >= 0) {
+        arr.push(input[i].email)
+      }
+      else {
+        arr2.push(input[i].email)
       }
     }
-    return array
+  }
+
+  function switchArray(arr,arr2,em) {
+    if (em == true)
+      return arr
+    else {
+      return arr2
+    }
   }
 });
