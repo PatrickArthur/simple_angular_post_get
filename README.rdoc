@@ -1,1 +1,1 @@
-Simple rails and agular app that allows a user to enter name and emails address, angular controller has ajax post and get request that will only display and email if it ends with.com and then shows a count of all emails entered and a count of those that end with .com.
+Simple rails and angular app that allows a user to enter name and emails address, angular controller has ajax post and get request that will only display and email if it ends with.com and then shows a count of all emails entered and a count of those that end with .com.
