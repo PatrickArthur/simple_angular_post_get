@@ -23,9 +23,13 @@
   </form>
 
   <ul>
+    <p> Emails entered ending in .com </p>
     <li ng-repeat="x in myData">
-      {{ x.first_name + ', ' + x.last_name }}
+      {{x}}
     </li>
   </ul>
+
+  <p>{{countPeople}} persons entered emails</p>
+  <p>{{countPeopleCom}} persons email ends in .com</p>
 
 </div>
